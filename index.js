@@ -23,3 +23,11 @@ $(document).ready(function() {
         $('textarea#output').css('font-size', $(this).val()+'em');
     });
 });
+
+function load(s) {
+    $.get(s+'.txt', function(data) {
+        $('#input').val(data);
+    }, "text").fail(function() {
+        alert("Failed to get data.");
+    });
+}

@@ -66,9 +66,20 @@ var Baybayin = /** @class */ (function () {
         if (~"CQFZJX".indexOf(s)) {
             return this._conjunct(s);
         }
+        else if (s.match(/[.,]/)) {
+            return this.handle_punctuation(s);
+        }
         else {
             return this.settings.ra ? consonants[s] : consonants_no_ra[s];
         }
+    };
+    Baybayin.prototype.handle_punctuation = function (s) {
+        if (s == ".")
+            return "\u1736";
+        else if (s == ",")
+            return "\u1735";
+        else
+            return s;
     };
     Baybayin.prototype.convert = function (from) {
         var s, s2;
@@ -78,6 +89,8 @@ var Baybayin = /** @class */ (function () {
             s = fromA.shift();
             if (!s)
                 break;
+            if (s == "-")
+                continue;
             s2 = fromA.shift();
             if (s == "N" && s2 == "G") {
                 s = "NG";
@@ -108,9 +121,9 @@ var Baybayin = /** @class */ (function () {
                 }
             }
             else if (!~"CQFZJX".indexOf(s) && consonants[s] == undefined) {
-                ret += s;
+                ret += this.handle_punctuation(s);
                 if (s2)
-                    ret += s2;
+                    ret += this.handle_punctuation(s2);
             }
             else {
                 ret += this.consonant_or_conjunct(s);

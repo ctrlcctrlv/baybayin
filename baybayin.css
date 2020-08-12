@@ -6,5 +6,6 @@ h1 {
     font-weight: bold
 }
 textarea#output {
-    font-size: 3em
+    font-size: 3em;
+    line-height: 1.6em
 }

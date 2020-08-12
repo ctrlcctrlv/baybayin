@@ -74,9 +74,17 @@ class Baybayin {
     consonant_or_conjunct(s: string): string {
         if (~"CQFZJX".indexOf(s)) {
             return this._conjunct(<Conjunct>s);
+        } else if (s.match(/[.,]/)) {
+            return this.handle_punctuation(s);
         } else {
             return this.settings.ra ? consonants[s] : consonants_no_ra[s];
         }
+    }
+
+    handle_punctuation(s: string): string {
+        if (s == ".") return "\u1736";
+        else if (s == ",") return "\u1735";
+        else return s;
     }
 
     convert(from: string): string {
@@ -88,6 +96,7 @@ class Baybayin {
             s = fromA.shift();
 
             if (!s) break;
+            if (s == "-") continue;
 
             s2 = fromA.shift();
 
@@ -118,8 +127,8 @@ class Baybayin {
                     }
                 }
             } else if (!~"CQFZJX".indexOf(s) && consonants[s] == undefined) {
-                ret += s;
-                if (s2) ret += s2;
+                ret += this.handle_punctuation(s);
+                if (s2) ret += this.handle_punctuation(s2);
             } else {
                 ret += this.consonant_or_conjunct(s);
                 ret += this.virama();
