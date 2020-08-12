@@ -27,6 +27,7 @@ $(document).ready(function() {
 function load(s) {
     $.get(s+'.txt', function(data) {
         $('#input').val(data);
+        $('#input').trigger('input');
     }, "text").fail(function() {
         alert("Failed to get data.");
     });
