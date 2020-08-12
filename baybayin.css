@@ -1,5 +1,5 @@
-@font-face {font-family: 'NotoSansTagalog'; src: url('NotoSansTagalog[wght].ttf') } 
-body {
+@font-face {font-family: 'NotoSansTagalog'; src: url('./NotoSansTagalog[wght].ttf') } 
+body, label {
     font-family: 'NotoSansTagalog', 'Noto Sans', sans-serif;
 }
 h1 {

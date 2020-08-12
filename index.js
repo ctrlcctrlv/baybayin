@@ -11,6 +11,14 @@ $(document).ready(function() {
         $('#output').css('font-weight', $(this).val());
     });
 
+    $('#hist').on('change', function() {
+        if (this.checked) {
+            $('#output').css('font-feature-settings', "'hist' on");
+        } else {
+            $('#output').css('font-feature-settings', "'hist' off");
+        }
+    });
+
     $('#size').on('input', function() {
         $('textarea#output').css('font-size', $(this).val()+'em');
     });
