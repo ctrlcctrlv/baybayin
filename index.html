@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    <!-- Our CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"> 
+    <link rel="stylesheet" href="baybayin.css">
+
+    <title>Baybayin auto-converter</title>
+  </head>
+  <body>
+    <div class="container">
+        <h1>Advanced, <em>correct</em><sup>&dagger;</sup> Baybayin converter 🇵🇭</h1>
+        <p><em>Doubles as a Noto Sans Tagalog v3+ interactive specimen!</em>&nbsp;🔣</p>
+
+        <div class="md-form">
+        <form id="baybayin">
+            <label for="input">Input</label>
+            <textarea class="md-textarea form-control" id="input" rows="3"></textarea>
+            <label for="input">Output</label>
+            <textarea class="md-textarea form-control" id="output" rows="3" readonly></textarea>
+
+            <label for="pamudpod">Pamudpod</label>
+            <input type="checkbox" id="pamudpod" checked>
+            <label for="ra">Baybayin <em>ra</em> (&#x170D;)</label>
+            <input type="checkbox" id="ra" checked>
+            <label for="kudlit">Kudlit</label>
+            <select id="kudlit">
+                <option value="None">None</option>
+                <option value="Traditional">Traditional</option>
+                <option value="Hollow" selected>Hollow</option>
+            </select>
+            <br/>
+            <label for="weight">Weight</label>
+            <input class="form-control" type="range" id="weight" min="400" max="700" value="400">
+            <label for="size">Size</label>
+            <input class="form-control" type="range" id="size" min="2" max="7" value="3" step="0.01">
+        </form>
+        </div>
+
+        <p>&dagger; Most of the time. Please open a bug if output is wrong.</p>
+        <p>This page &copy; 2020 Fredrick R. Brennan&mdash;Apache 2.0 license. <a href="https://github.com/ctrlcctrlv/baybayin">GitHub</a><br/>
+        Noto Sans Tagalog &copy; 2013&ndash;2020 Noto Sans Tagalog Project Authors, SIL OFL license. <a href="https://github.com/ctrlcctrlv/Noto-Sans-Tagalog">GitHub</a></p>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <!-- Bootstrap Material Design -->
+    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+    <!-- Our JS -->
+    <script src="./baybayin.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>

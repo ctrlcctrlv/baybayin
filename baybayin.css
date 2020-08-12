@@ -1,0 +1,10 @@
+@font-face {font-family: 'NotoSansTagalog'; src: url('NotoSansTagalog[wght].ttf') } 
+body {
+    font-family: 'NotoSansTagalog', 'Noto Sans', sans-serif;
+}
+h1 {
+    font-weight: bold
+}
+textarea#output {
+    font-size: 3em
+}
