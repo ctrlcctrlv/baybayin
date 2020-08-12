@@ -27,7 +27,7 @@ var Kudlit;
 var Baybayin = /** @class */ (function () {
     function Baybayin(settings) {
         if (!settings) {
-            this.settings = { pamudpod: true, kudlit: Kudlit.Hollow, ra: true };
+            this.settings = { pamudpod: true, conjuncts: false, kudlit: Kudlit.Hollow, ra: true };
         }
         else {
             this.settings = settings;
@@ -45,6 +45,8 @@ var Baybayin = /** @class */ (function () {
         }
     };
     Baybayin.prototype._conjunct = function (c) {
+        if (!this.settings.conjuncts)
+            return c;
         switch (c) {
             case "F":
                 return consonants["P"];
@@ -56,10 +58,12 @@ var Baybayin = /** @class */ (function () {
                 return consonants["S"];
             case "J":
                 return consonants["D"] + this.virama() + consonants["Y"];
+            case "C":
+                return consonants["K"];
         }
     };
     Baybayin.prototype.consonant_or_conjunct = function (s) {
-        if (~"QFZJX".indexOf(s)) {
+        if (~"CQFZJX".indexOf(s)) {
             return this._conjunct(s);
         }
         else {
@@ -90,7 +94,7 @@ var Baybayin = /** @class */ (function () {
                 continue;
             }
             s2 = fromA.shift();
-            if ((~"QFZJX".indexOf(s) || consonants[s] != undefined) && vowels[s2] != undefined) {
+            if ((~"CQFZJX".indexOf(s) || consonants[s] != undefined) && vowels[s2] != undefined) {
                 ret += this.consonant_or_conjunct(s);
                 if (s2 != "A") {
                     if (this.settings.kudlit == Kudlit.Traditional) {
@@ -103,7 +107,7 @@ var Baybayin = /** @class */ (function () {
                     }
                 }
             }
-            else if (!~"QFZJX".indexOf(s) && consonants[s] == undefined) {
+            else if (!~"CQFZJX".indexOf(s) && consonants[s] == undefined) {
                 ret += s;
                 if (s2)
                     ret += s2;

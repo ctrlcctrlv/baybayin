@@ -3,7 +3,7 @@
 type Consonant = "B" | "K" | "D" | "G" | "H" | "L" | "M" | "N" | "NG" | "P" | "R" | "S" | "T" | "W" | "Y";
 type Vowel = "A" | "E" | "I" | "O" | "U";
 
-type Conjunct = "Q" | "F" | "Z" | "J" | "X";
+type Conjunct = "Q" | "F" | "Z" | "J" | "X" | "C";
 
 const consonants: Record<Consonant, string> = {"B": "\u170A", "K": "\u1703", "D": "\u1707", "G": "\u1704", "H": "\u1711", "L": "\u170E", "M": "\u170B", "N": "\u1708", "NG": "\u1705", "P": "\u1709", "R": "\u170D", "S": "\u1710", "T": "\u1706", "W": "\u170F", "Y": "\u170C"};
 const consonants_no_ra: Record<Consonant, string> = {...consonants};
@@ -28,6 +28,7 @@ enum Kudlit {
 interface BaybayinSettings {
     pamudpod: boolean;
     ra: boolean;
+    conjuncts: boolean;
     kudlit: Kudlit;
 }
 
@@ -36,7 +37,7 @@ class Baybayin {
 
     constructor(settings?: BaybayinSettings) {
         if (!settings) {
-            this.settings = {pamudpod: true, kudlit: Kudlit.Hollow, ra: true};
+            this.settings = {pamudpod: true, conjuncts: false, kudlit: Kudlit.Hollow, ra: true};
         } else {
             this.settings = settings;
         }
@@ -53,6 +54,7 @@ class Baybayin {
     }
 
     _conjunct(c: Conjunct): string {
+        if (!this.settings.conjuncts) return <string>c;
         switch (c) {
             case "F":
                 return consonants["P"];
@@ -64,11 +66,13 @@ class Baybayin {
                 return consonants["S"];
             case "J":
                 return consonants["D"] + this.virama() + consonants["Y"];
+            case "C":
+                return consonants["K"];
         }
     }
 
     consonant_or_conjunct(s: string): string {
-        if (~"QFZJX".indexOf(s)) {
+        if (~"CQFZJX".indexOf(s)) {
             return this._conjunct(<Conjunct>s);
         } else {
             return this.settings.ra ? consonants[s] : consonants_no_ra[s];
@@ -103,7 +107,7 @@ class Baybayin {
 
             s2 = fromA.shift();
 
-            if ((~"QFZJX".indexOf(s) || consonants[s] != undefined) && vowels[s2] != undefined) {
+            if ((~"CQFZJX".indexOf(s) || consonants[s] != undefined) && vowels[s2] != undefined) {
                 ret += this.consonant_or_conjunct(s);
                 if (s2 != "A") {
                     if (this.settings.kudlit == Kudlit.Traditional) {
@@ -113,7 +117,7 @@ class Baybayin {
                     } else { // Kudlit.None
                     }
                 }
-            } else if (!~"QFZJX".indexOf(s) && consonants[s] == undefined) {
+            } else if (!~"CQFZJX".indexOf(s) && consonants[s] == undefined) {
                 ret += s;
                 if (s2) ret += s2;
             } else {
