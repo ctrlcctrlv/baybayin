@@ -14,7 +14,7 @@
 
     <title>Baybayin auto-converter</title>
   </head>
-  <body>
+  <body class="Sans">
     <div class="container">
         <h1>Advanced, <em>correct</em><sup>&dagger;</sup> Baybayin converter 🇵🇭</h1>
         <p><em>Doubles as a Noto Sans Tagalog v3+ interactive specimen!</em>&nbsp;🔣</p>
@@ -47,6 +47,9 @@
             <input class="form-control" type="range" id="weight" min="400" max="700" value="400">
             <label for="size">Size</label>
             <input class="form-control" type="range" id="size" min="2" max="7" value="3" step="0.01">
+            <label for="font">Font</label><br/>
+            <input type="radio" name="font" id="font1" value="Sans" checked="checked" default="default" autocomplete="off"> <label for="font1">Sans</label><br/>
+            <input type="radio" name="font" id="font2" value="Serif" autocomplete="off"> <label for="font2">Serif</label><br/>
         </form>
         </div>
 

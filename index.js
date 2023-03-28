@@ -19,6 +19,14 @@ $(document).ready(function() {
         }
     });
 
+    $('[name=font]').on('change', function() {
+        if (this.value === "Sans") {
+            $("body").attr("class", "Sans");
+        } else if (this.value === "Serif") {
+            $("body").attr("class", "Serif");
+        }
+    });
+
     $('#size').on('input', function() {
         $('textarea#output').css('font-size', $(this).val()+'em');
     });

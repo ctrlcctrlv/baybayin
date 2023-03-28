@@ -1,11 +1,15 @@
-@font-face {font-family: 'NotoSansTagalog'; src: url('./NotoSansTagalog[wght].ttf') } 
-body, label {
+@font-face {font-family: 'NotoSansTagalog'; src: url('./NotoSansTagalog[wght].ttf') }
+@font-face {font-family: 'NotoSerifTagalog'; src: url('./NotoSerifTagalog[wght].ttf') }
+body.Sans, label.Sans {
     font-family: 'NotoSansTagalog', 'Noto Sans', sans-serif;
 }
+body.Serif, label.Serif {
+    font-family: 'NotoSerifTagalog', 'Noto Sans', sans-serif;
+}
 h1 {
-    font-weight: bold
+    font-weight: bold;
 }
 textarea#output {
     font-size: 3em;
-    line-height: 1.6em
+    line-height: 1.6em;
 }
