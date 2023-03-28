@@ -5,15 +5,22 @@ type Vowel = "A" | "E" | "I" | "O" | "U";
 
 type Conjunct = "Q" | "F" | "Z" | "J" | "X" | "C";
 
-const consonants: Record<Consonant, string> = {"B": "\u170A", "K": "\u1703", "D": "\u1707", "G": "\u1704", "H": "\u1711", "L": "\u170E", "M": "\u170B", "N": "\u1708", "NG": "\u1705", "P": "\u1709", "R": "\u170D", "S": "\u1710", "T": "\u1706", "W": "\u170F", "Y": "\u170C"};
+const consonants: Record<Consonant, string> = {"B": "\u170A", "K": "\u1703",
+	"D": "\u1707", "G": "\u1704", "H": "\u1711", "L": "\u170E", "M":
+	"\u170B", "N": "\u1708", "NG": "\u1705", "P": "\u1709", "R": "\u170D",
+	"S": "\u1710", "T": "\u1706", "W": "\u170F", "Y": "\u170C"};
+
 const consonants_no_ra: Record<Consonant, string> = {...consonants};
 consonants_no_ra["R"] = consonants_no_ra["D"]
 
-const vowels: Record<Vowel, string> = {"A": "\u1700", "E": "\u1701", "I": "\u1701", "O": "\u1702", "U": "\u1702"}
+const vowels: Record<Vowel, string> = {"A": "\u1700", "E": "\u1701", "I":
+	"\u1701", "O": "\u1702", "U": "\u1702"}
 
-const kudlit: Record<Vowel, string | null> = {"A": null, "E": "\u1712", "I": "\u1712", "O": "\u1713", "U": "\u1713"}
+const kudlit: Record<Vowel, string | null> = {"A": null, "E": "\u1712", "I":
+	"\u1712", "O": "\u1713", "U": "\u1713"}
 
-const kudlit_hollow: Record<Vowel, string | null> = {"A": null, "E": "\u1712\ufe00", "I": "\u1712", "O": "\u1713\ufe00", "U": "\u1713"}
+const kudlit_hollow: Record<Vowel, string | null> = {"A": null, "E":
+	"\u1712\ufe00", "I": "\u1712", "O": "\u1713\ufe00", "U": "\u1713"}
 
 const virama: string = "\u1714";
 
