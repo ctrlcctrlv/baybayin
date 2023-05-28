@@ -1,72 +1,101 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
-    <!-- Our CSS -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"> 
-    <link rel="stylesheet" href="baybayin.css">
-
-    <title>Baybayin auto-converter</title>
-  </head>
-  <body class="Sans">
-    <div class="container">
-        <h1>Advanced, <em>correct</em><sup>&dagger;</sup> Baybayin converter 🇵🇭</h1>
-        <p><em>Doubles as a Noto Sans Tagalog v3+ interactive specimen!</em>&nbsp;🔣</p>
-
-        <p>Preload text: <a href="javascript:load('LH')">Lupang Hinirang</a> &bullet; <a href="javascript:load('UDHR')">Preamble of the Universal Declaration of Human Rights</a>
-
-        <div class="md-form">
-        <form id="baybayin">
-            <label for="input">Input</label>
-            <textarea class="md-textarea form-control" id="input" rows="3"></textarea>
-            <label for="input">Output</label>
-            <textarea class="md-textarea form-control" id="output" rows="3" readonly></textarea>
-
-            <label for="pamudpod">Pamudpod</label>
-            <input type="checkbox" id="pamudpod" checked><br/>
-            <label for="ra">Baybayin <em>ra</em> (&#x170D;)</label>
-            <input type="checkbox" id="ra" checked><br/>
-            <label for="conjuncts">Interpret non-Tagalog letters which may result in ambiguous output (e.g. J, C)</label>
-            <input type="checkbox" id="conjuncts"><br/>
-            <label for="hist">Archaic <em>ra</em> (&#x171F;)</label>
-            <input type="checkbox" id="hist"><br/>
-            <label for="kudlit">Kudlit</label>
-            <select id="kudlit">
-                <option value="None">None</option>
-                <option value="Traditional">Traditional</option>
-                <option value="Hollow" selected>Hollow</option>
-            </select>
-            <br/>
-            <label for="weight">Weight</label>
-            <input class="form-control" type="range" id="weight" min="400" max="700" value="400">
-            <label for="size">Size</label>
-            <input class="form-control" type="range" id="size" min="2" max="7" value="3" step="0.01">
-            <label for="font">Font</label><br/>
-            <input type="radio" name="font" id="font1" value="Sans" checked="checked" default="default" autocomplete="off"> <label for="font1">Sans</label><br/>
-            <input type="radio" name="font" id="font2" value="Serif" autocomplete="off"> <label for="font2">Serif</label><br/>
-        </form>
-        </div>
-
-        <p>&dagger; Most of the time. Please open a bug if output is wrong.</p>
-        <p>This page &copy; 2020 Fredrick R. Brennan&mdash;Apache 2.0 license. <a href="https://github.com/ctrlcctrlv/baybayin">GitHub</a><br/>
-        Noto Sans Tagalog &copy; 2013&ndash;2020 Noto Sans Tagalog Project Authors, SIL OFL license. <a href="https://github.com/ctrlcctrlv/Noto-Sans-Tagalog">GitHub</a></p>
-    </div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    <!-- Bootstrap Material Design -->
-    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
-    <!-- Our JS -->
-    <script src="./baybayin.js"></script>
-    <script src="./index.js"></script>
-  </body>
-</html>
+<!DOCTYPE html>
+<HTML LANG="en">
+<HEAD>
+  <META CHARSET="utf-8">
+  <META NAME="generator" CONTENT="HTML Tidy for HTML5 for Linux version 5.7.45">
+  <META NAME="viewport" CONTENT="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <META NAME="description" CONTENT="An advanced, correct Baybayin converter or translator. Translate English to Baybayin or Tagalog to Baybayin with this interactive typeface specimen.">
+  <META NAME="keywords" CONTENT="Baybayin, Baybayin Translator, Baybayin Generator, Alibata Translator, Tagalog to Baybayin, English to Baybayin, Baybayin Converter">
+  <LINK REL="stylesheet" HREF="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" INTEGRITY="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" CROSSORIGIN="anonymous">
+  <LINK REL="stylesheet" HREF="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" INTEGRITY="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" CROSSORIGIN="anonymous">
+  <LINK REL="stylesheet" HREF="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap">
+  <LINK REL="stylesheet" HREF="baybayin.css">
+  <TITLE>Advanced, correct Baybayin converter 🇵🇭</TITLE>
+</HEAD>
+<BODY CLASS="Sans">
+  <DIV CLASS="container">
+    <H1>Advanced, <EM>correct</EM><SUP>†</SUP> Baybayin converter 🇵🇭</H1>
+    <P><EM>Doubles as a Noto Sans Tagalog v3+ interactive specimen!</EM>&nbsp;🔣</P>
+    <H2>What is <EM LANG="tl">baybayin</EM>? Is it <EM LANG="tl">alibata</EM>?</H2>
+    <P><EM LANG="tl"><A HREF="https://en.wikipedia.org/wiki/Baybayin">Baybayin</A></EM> is an ancient script used in the Philippines before Spanish colonization. Also (inaccurately<A NAME="ddaggerup" HREF="#ddaggerdown" ID="ddaggerup">‡</A>) known as
+    <EM LANG="tl">Alibata</EM>, this script was historically primarily used by the Tagalog people, and is used by Filipinos more broadly today. Despite the prevalence of the Latin alphabet in the modern Tagalog (Filipino) language, <EM LANG="tl">baybayin</EM> remains
+    an integral part of Philippine heritage and history.</P>
+    <HR>
+    <DIV CLASS="md-form">
+      <P>Preload text: <A ID="LH" HREF="JAVASCRIPT:;">Lupang Hinirang</A> • <A ID="UDHR" HREF="JAVASCRIPT:;">Preamble of the Universal Declaration of Human Rights</A></P>
+      <HR>
+      <FORM ID="baybayin" NAME="baybayin">
+        <LABEL FOR="input">Input</LABEL> 
+        <TEXTAREA CLASS="md-textarea form-control" ID="input" ROWS="3"></TEXTAREA> <LABEL FOR="input">Output</LABEL> 
+        <TEXTAREA CLASS="md-textarea form-control" ID="output" ROWS="3" READONLY="readonly"></TEXTAREA> <LABEL FOR="pamudpod">Pamudpod</LABEL> <INPUT TYPE="checkbox" ID="pamudpod" CHECKED="checked"><BR>
+        <LABEL FOR="ra">Baybayin <EM>ra</EM> (ᜍ)</LABEL> <INPUT TYPE="checkbox" ID="ra" CHECKED="checked"><BR>
+        <LABEL FOR="conjuncts">Interpret non-Tagalog letters which may result in ambiguous output (e.g. J, C)</LABEL> <INPUT TYPE="checkbox" ID="conjuncts"><BR>
+        <LABEL FOR="hist">Archaic <EM>ra</EM> (ᜟ)</LABEL> <INPUT TYPE="checkbox" ID="hist"><BR>
+        <LABEL FOR="kudlit">Kudlit</LABEL> <SELECT ID="kudlit">
+          <OPTION VALUE="None">
+            None
+          </OPTION>
+          <OPTION VALUE="Traditional">
+            Traditional
+          </OPTION>
+          <OPTION VALUE="Hollow" SELECTED="selected">
+            Hollow
+          </OPTION>
+        </SELECT><BR>
+        <LABEL FOR="weight">Weight</LABEL> <INPUT CLASS="form-control" TYPE="range" ID="weight" MIN="400" MAX="700" VALUE="400"> <LABEL FOR="size">Size</LABEL> <INPUT CLASS="form-control" TYPE="range" ID="size" MIN="2" MAX="7" VALUE="3" STEP="0.01">
+        <LABEL FOR="font">Font</LABEL><BR>
+        <INPUT TYPE="radio" NAME="font" ID="font1" VALUE="Sans" CHECKED="checked" DEFAULT="default" AUTOCOMPLETE="off"> <LABEL FOR="font1">Sans</LABEL><BR>
+        <INPUT TYPE="radio" NAME="font" ID="font2" VALUE="Serif" AUTOCOMPLETE="off"> <LABEL FOR="font2">Serif</LABEL><BR>
+      </FORM>
+    </DIV>
+  </DIV>
+  <DIV CLASS="container">
+    <FOOTER>
+      <H2>Footnotes</H2>
+      <P>† Most of the time. Please open a bug if output is wrong.</P>
+      <P><A NAME="ddaggerdown" HREF="#ddaggerup" ID="ddaggerdown">‡</A> <SMALL><SPAN TITLE="Tagalog-language text"><I LANG="tl">Baybayin</I></SPAN> is occasionally referred to as <I>alibata</I>,<SUP ID="cite_ref-FOOTNOTEHalili2004_14-0" CLASS=
+      "reference"><A HREF="#cite_note-FOOTNOTEHalili2004-14">[13]</A></SUP><SUP ID="cite_ref-FOOTNOTEDuka2008_15-0" CLASS="reference"><A HREF="#cite_note-FOOTNOTEDuka2008-15">[14]</A></SUP> a neologism coined by Paul Rodríguez Verzosa in 1914, after
+      the first three letters of the <A HREF="https://en.wikipedia.org/wiki/Arabic_alphabet" TITLE="Arabic alphabet">Arabic script</A> (<SPAN TITLE="ISO 233 Arabic (Arabic language) transliteration"><I LANG="ar-Latn">ʾalif</I></SPAN>, <SPAN TITLE=
+      "ISO 233 Arabic (Arabic language) transliteration"><I LANG="ar-Latn">bāʾ</I></SPAN>, <SPAN TITLE="ISO 233 Arabic (Arabic language) transliteration"><I LANG="ar-Latn">tāʾ</I></SPAN>; the <I>f</I> in <I>ʾalif</I> having been dropped for <A HREF=
+      "https://en.wikipedia.org/wiki/Euphony" CLASS="mw-redirect" TITLE="Euphony">euphony</A>'s sake), presumably under the erroneous assumption that <SPAN TITLE="Tagalog-language text"><I LANG="tl">baybayin</I></SPAN> was derived from it.<SUP ID=
+      "cite_ref-paulmorrow_16-0" CLASS="reference"><A HREF="#cite_note-paulmorrow-16">[15]</A></SUP> Most modern scholars reject the use of the word <I>alibata</I> as incorrect.<SUP ID="cite_ref-paulmorrow_16-1" CLASS="reference"><A HREF=
+      "#cite_note-paulmorrow-16">[15]</A></SUP><SUP ID="cite_ref-Normandelossantos_17-0" CLASS="reference"><A HREF="#cite_note-Normandelossantos-17">[16]</A></SUP></SMALL></P>
+      <OL CLASS="olsmall" START="13">
+        <LI ID="cite_note-FOOTNOTEHalili2004-14"><SMALL><CITE ID="CITEREFHalili2004" CLASS="citation book cs1">Halili, Maria Christine N. (2004). <A CLASS="external text" HREF="https://books.google.com/books?id=gUt5v8ET4QYC"><I>Philippine
+        History</I></A>. Manila: Rex Book Store. <A HREF="/wiki/ISBN_(identifier)" CLASS="mw-redirect" TITLE="ISBN (identifier)">ISBN</A>&nbsp;<A HREF="/wiki/Special:BookSources/978-971-23-3934-9" TITLE=
+        "Special:BookSources/978-971-23-3934-9"><BDI>978-971-23-3934-9</BDI></A>.</CITE> p.&nbsp;<A CLASS="external text" HREF="https://books.google.com/books?id=gUt5v8ET4QYC&amp;pg=PA47">47</A>.</SMALL></LI>
+        <LI ID="cite_note-FOOTNOTEDuka2008-15"><SMALL><SPAN CLASS="reference-text"><CITE ID="CITEREFDuka2008" CLASS="citation book cs1">Duka, Cecilio D. (2008). <A CLASS="external text" HREF=
+        "https://books.google.com/books?id=4wk8yqCEmJUC"><I>Struggle for Freedom: A Textbook on Philippine History</I></A>. Manila: Rex Book Store. <A HREF="/wiki/ISBN_(identifier)" CLASS="mw-redirect" TITLE=
+        "ISBN (identifier)">ISBN</A>&nbsp;<A HREF="/wiki/Special:BookSources/978-971-23-5045-0" TITLE="Special:BookSources/978-971-23-5045-0"><BDI>978-971-23-5045-0</BDI></A>.</CITE>, pp.&nbsp;<A CLASS="external text" HREF=
+        "https://books.google.com/books?id=4wk8yqCEmJUC&amp;pg=PA32">32–33</A>.</SPAN></SMALL></LI>
+        <LI ID="cite_note-paulmorrow-16">
+          <LINK REL="mw-deduplicated-inline-style" HREF="mw-data:TemplateStyles:r1133582631"><SMALL><SPAN CLASS="reference-text"><CITE ID="CITEREFMorrow2002" CLASS="citation web cs1">Morrow, Paul (2002). <A CLASS="external text" HREF=
+          "http://paulmorrow.ca/bayeng1.htm">"Baybayin: The Ancient Script of the Philippines"</A>. <I>Sarisari etc…</I> (personal website of the author: <A HREF="http://paulmorrow.ca">PaulMorrow.ca</A>).</CITE></SPAN></SMALL>
+        </LI>
+        <LI ID="cite_note-Normandelossantos-17">
+          <LINK REL="mw-deduplicated-inline-style" HREF="mw-data:TemplateStyles:r1133582631"><SMALL><SPAN CLASS="reference-text"><CITE ID="CITEREFde_los_Santos2015" CLASS="citation conference cs1">de los Santos, Norman (2015). <A CLASS=
+          "external text" HREF="http://ical13.ling.sinica.edu.tw/Full_papers_and_ppts/July_21/P4-1.pdf"><I>Philippine Indigenous Writing Systems in the Modern World</I></A> <SPAN CLASS="cs1-format">(PDF)</SPAN>. Presented at the "Thirteenth
+          International Conference on Austronesian Linguistics". 13-ICAL – 2015, Academia Sinica, Taipei, Taiwan 18 July–23, 2015.</CITE></SPAN></SMALL>
+        </LI>
+      </OL>
+      <P>This page © 2020 Fredrick R. Brennan—Apache 2.0 license. <A HREF="https://github.com/ctrlcctrlv/baybayin">GitHub</A><BR>
+      Noto Sans Tagalog © 2013–2020 Noto Sans Tagalog Project Authors, SIL OFL license. <A HREF="https://github.com/ctrlcctrlv/Noto-Sans-Tagalog">GitHub</A></P>
+      <HR>
+      <SMALL>This page incorporates text from:</SMALL>
+      <UL>
+        <LI>
+          <P><SMALL>Wikipedia contributors, 'Baybayin', <I>Wikipedia, The Free Encyclopedia,</I> 16 May 2023, 22:03 UTC, &lt;<A CLASS="external free" HREF=
+          "https://en.wikipedia.org/w/index.php?title=Baybayin&amp;oldid=1155143091">https://en.wikipedia.org/w/index.php?title=Baybayin&amp;oldid=1155143091</A>&gt; [accessed 28 May 2023]</SMALL></P>
+        </LI>
+      </UL>
+    </FOOTER>
+  </DIV>
+  <SCRIPT SRC="https://code.jquery.com/jquery-3.5.1.slim.min.js" INTEGRITY="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" CROSSORIGIN="anonymous"></SCRIPT> 
+  <SCRIPT SRC="https://code.jquery.com/jquery-3.5.1.min.js" CROSSORIGIN="anonymous"></SCRIPT> 
+  <SCRIPT SRC="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" INTEGRITY="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" CROSSORIGIN="anonymous"></SCRIPT> 
+  <SCRIPT SRC="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" INTEGRITY="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" CROSSORIGIN="anonymous"></SCRIPT> 
+  <SCRIPT SRC="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" INTEGRITY="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" CROSSORIGIN="anonymous"></SCRIPT> 
+  <SCRIPT SRC="./baybayin.js"></SCRIPT> 
+  <SCRIPT SRC="./index.js"></SCRIPT>
+</BODY>
+</HTML>

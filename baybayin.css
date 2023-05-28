@@ -13,3 +13,9 @@ textarea#output {
     font-size: 3em;
     line-height: 1.6em;
 }
+cite {
+    font-style: normal;
+}
+.olsmall li::marker {
+    font-size: small;
+}
